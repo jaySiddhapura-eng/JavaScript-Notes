@@ -237,7 +237,7 @@
     console.log(math);
     ~~~
 
-11. [Object Freezing]([https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze#:~:text=A%20frozen%20object%20can%20no,existing%20properties%20from%20being%20changed.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze#:~:text=A frozen object can no,existing properties from being changed.))
+11. [Object Freezing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
 
     1. Basically it freezes the object in which it is being called
     2. Frozen object is no longer be changed 
