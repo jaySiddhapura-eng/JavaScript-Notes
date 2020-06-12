@@ -1,4 +1,4 @@
-// object can old function
+// object can hold function
 
 let circle = {
     radius:0,

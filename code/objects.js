@@ -60,17 +60,17 @@ console.log(math);
 math.v = 250;
 console.log(math);
 
-// what is object freez
-// effect of object freez on constant object
+// what is object freeze
+// effect of object freeze on constant object
 // it makes the constant object immune to any change 
 Object.freeze(math);
-math.h = 100;           // because of object freez this KV will not be added to the constant object
+math.h = 100;           // because of object freeze this KV will not be added to the constant object
 console.log(math)
 
-math.pi = 3.14444444;   // because of object freez value of already present key will not be change
+math.pi = 3.14444444;   // because of object freeze value of already present key will not be change
 console.log(math.pi);
 
-math.pi = 'string'      // becuase of obejct freez type of the KV can not be change
+math.pi = 'string'      // becuase of obejct freeze type of the KV can not be change
 console.log(math.pi);
 
 

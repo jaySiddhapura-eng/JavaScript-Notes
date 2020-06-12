@@ -7,10 +7,10 @@
 
  // naming the variable rule
  // 1. can not be reserved keywords
- // 2. should be meaningful and discriptive
+ // 2. should be meaningful and descriptive
  // 3. can not start with number
  // 4. can not contains the space or hyphen
- // 5. variable names are case sensetive
+ // 5. variable names are case sensitive
  // 5. follow java rules
 
  const pi = 3.14;

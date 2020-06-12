@@ -41,7 +41,7 @@ console.log(physicsConstant);
 
 
 // how to make truly constant array with constant elements
-
+//Object.freeze(physicsConstant);
 
 
 // array can hold different types of data
@@ -77,5 +77,9 @@ colors[5] = 'orange';
 console.log(colors);
 
 // each array holds certain default methods which can be use
+
+
+
+
 
 
