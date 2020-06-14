@@ -53,7 +53,7 @@
    | Undefined       |                 |
    | Null            |                 |
 
-   <br>
+   
 
 3. `var` keyword is history, `let` keyword is used to declare the variable 
 
