@@ -2,24 +2,11 @@
 
 let circle = {
     radius:0,
-    pi : 3.14,
+    planeWhereReside:'',
 
     location:{
         x:1,
         y:0
-    },
-
-    setRadius:function(radius){
-        this.radius = radius;
-    },
-
-    setLocation:function(a,b){
-        this.location.x = a;
-        this.location.y = b;
-    },
-
-    getLocation:function(){
-        return this.location;
     },
 
     getDiameter:function(){
@@ -28,20 +15,27 @@ let circle = {
     },
 
     getArea:function(){
-        let area = this.radius*this.radius*this.pi;
+        let area = this.radius*this.radius*Math.PI;
         return area;
     }
 }
 
-circle.setRadius(2);
-circle.setLocation(1,2);
-let loc = circle.getLocation();
-console.log(loc);
+// accessing different properties of circle object
+circle.radius  = 20;        
+circle.planeWhereReside = 'XY'
 
+// how to access the object inside object
+circle.location.x = 20;     
+circle.location.y = 15;
+
+// how to access the functions of the object
 let dia = circle.getDiameter();
-console.log(dia);
+let AREA = circle.getArea();
 
-let are = circle.getArea();
-console.log(are);
+// displaying the obtained result
+console.log('diameter : '+dia);
+console.log('area : '+AREA);
+
+
 
 

@@ -53,9 +53,7 @@
    | Undefined       |                 |
    | Null            |                 |
 
-   
-
-3. **VAR** keyword is history, **LET** keyword is used to declare the variable 
+   1. `var` keyword is history, `let` keyword is used to declare the variable 
 
    ~~~javascript
     // declaring variables 
@@ -67,7 +65,7 @@
     let firstVar = 'string', lastVar = 1;	// two different type of variables 
    ~~~
 
-4. Rules to declaring the variables [naming of variable]
+3. Rules to declaring the variables [naming of variable]
 
    1. can not be reserved keywords
    2. should be meaningful and descriptive
@@ -76,7 +74,7 @@
    5. variable names are case sensitive
    6. follow java rules
 
-5. Declaring constants
+4. Declaring constants
 
    ~~~javascript
    const pi = 3.14;
@@ -84,7 +82,7 @@
    // reassignment is impossible, pretty logical 
    ~~~
 
-6. Primitive Types
+5. Primitive Types
 
    ~~~javascript
     let stringName = 'sampleString';
@@ -94,7 +92,7 @@
     let nullVariable = null;
    ~~~
 
-7. Dynamic Typing: The datatype of variable can change during runtime
+6. Dynamic Typing: The datatype of variable can change during runtime
 
    ~~~javascript
    // In continuation of above section [section 6] 
@@ -108,7 +106,7 @@
     console.log('type of null variable : '+ typeof nullVariable);
    ~~~
 
-8. 
+7. 
 
 ## Reference datatype : [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
 
@@ -116,7 +114,7 @@
 
 2. Grouping of related Data, makes code cleaner and more readable
 
-3. Object must always be wrapped by object literals {} 
+3. Object must always be wrapped by object literals `{}` 
 
 4. Example Object
 
@@ -420,9 +418,534 @@
     console.log(copyedArray);	// output : ["orage", "blue", "green"]
     ~~~
 
+## Reference datatype : [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+
+1. Syntax to declare the simple function semicolon 
+
+   ~~~javascript
+   // does not have any parameter or any return value
+   // statements in functions are semicolon separated
+   function responseString (){
+       console.log('simple response');
+   }
+   ~~~
+
+2. Function with parameters
+
+   ~~~javascript
+   // function with one parameter
+   function withParam (param1){
+       console.log(param1);
+   }
+   
+   // funtion with more than 2 parameters
+   function withParam (param1, param2, param3){
+       console.log(param1+param2+param3);
+   }
+   ~~~
+
+3. Function which returns
+
+   ~~~javascript
+   function withReturn (param1, param2){
+       return param1+param2;
+   }
+   ~~~
+
+4. Using the declared parameter
+
+   ~~~javascript
+   //response function
+   responseString();
+   
+   //response of function with parameters
+   withParam(2,3);
+   
+   //response of function with partially given parameter
+   withParam(2);
+   
+   //response of function with return value
+   let value = withReturn(7,9);
+   console.log(value);
+   ~~~
+
+5. Function are hoisted
+
+   ~~~javascript
+   // function usage before its declaration will give an error
+   // because functions are hoisted
+   
+   // function usage
+   withReturn(2,3);
+   
+   // function declaration
+   function withReturn (param1, param2){
+       return param1+param2;
+   }
+   ~~~
+
+6. Object as a parameter to the function
+
+   ~~~javascript
+   // pass object as parameter
+   function myFunction(theObject){
+       // this will modify the vars of given object [theObject]
+       // vars are same as the provided object
+       theObject.var1 = 'STRING1';			
+       theObject.var2 = 'STRING2';
+       theObject.var3 = 'STRING3';
+   }
+   
+   let sampleObject = {
+       // sample object for demo
+       var1 : 'string0',
+       var2 : 'string1',
+       var3 : 'string3'
+   }
+   
+   // the sample object is passed to the function as a parameter
+   myFunction(sampleObject);
+   console.log('demo of object as a function parameter')
+   console.log(sampleObject);
+   
+   // the resultant sampleObject
+   sampleObject = {
+       var1: "STRING1", 
+       var2: "STRING2", 
+       var3: "STRING3"
+   }
+   ~~~
+
+7. Objects as a return from the function // in following section check functionObject.js
+
+8. Nested Functions
+
+   1.  The nested (inner) function is private to its containing (outer) function
+   2. The inner function can be accessed only from statements in the outer function
+   3. **The inner function forms a closure**: the inner function can use the arguments and variables of the outer function
+   4. while the outer function cannot use the arguments and variables of the inner function.
+
+   ~~~javascript
+   // one inner function nested within outer function
+   function outerFunction(param1,param2){
+       // nested function
+       function innerFuction1(param3){
+               return param3*param3; // returning from the nested function
+       }
+       // nested inner function can be used whitin outer function
+       return innerFuction1(param1)+innerFuction1(param2);
+   }
+   
+   let val1 = outerFunction(2,2);
+   console.log('value obtained from outer function : ' + val1);	// output : 8
+   
+   
+   // multiple inner functions
+   function OUTERFUNC (param1,param2){
+   	// first inner function
+       function INNERFUNC1(innerParam1){
+           return innerParam1*innerParam1;	// return of inner function 2
+       }
+   	// second inner function
+       function INNERFUNC2(innerParam2){
+           return innerParam2*innerParam2;	// return of inner function 2
+       }
+   	// return of outer function
+       return INNERFUNC1(param1)+INNERFUNC2(param2);
+   }
+   
+   let val2 = OUTERFUNC(3,4);
+   console.log('value obtained from outer function : ' + val2);  // output : 25
+   ~~~
+
+9. call the outer function and specify arguments for both the outer and inner function
+
+   ~~~javascript
+   function outside(x){
+   
+       function inside(y){
+           let val = x + y;
+           return val;
+       }
+       return inside;
+   }
+   
+   let sample = outside(2);
+   let sample2 = sample(5);
+   console.log(sample2);       // it will give me 7
+   
+   // or 
+   let sample3 = outside(3)(10);
+   console.log(sample3);       // it will give me result 13
+   ~~~
+
+10. [Arrow Functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/)
+
+    1. Arrow function has shorter syntax than general function expression
+
+    ~~~javascript
+    // syntax
+    let functionName = (parameter1, parameter2,..., parameterN) => expression
     
+    // example
+    // arrow function example
+    let multiplication = (number1, number2) => number1*number2;
+    
+    // calling the arrow function is same as conventional function
+    let outcome = multiplication(2,3);
+    console.log('outcome of arrow function : '+ outcome);
+    
+    // equivalent 
+    let MULTIPLICATION = function(num1, num2){
+        let result = num1*num2;
+        return result;
+    }
+    
+    //example arrow function without any argument or any return value
+    let sampleAlert = () => alert('house is on fire');
+    console.log('sample alert from arrow function');
+    
+    // equi. conventional function
+    let SAMPLEALERT = function(){
+        alert('house is on fire');
+    }
+    console.log('sample alert from conventional function : '+SAMPLEALERT());
+    ~~~
 
-15. ee
+## Function Object
 
-16. 
+1. While implementing function as a part of object literal, function is taken as object property
 
+   1. Declaring function Object
+
+2. [This keyword in JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+
+   ~~~javascript
+   // A circle object with 3 data and 2 function properties
+   let circle = {
+       // data
+       radius:0,
+       planeWhereReside:'',
+       location:{
+           x:1,
+           y:0
+       },
+   
+       // functions
+       getDiameter:function(){
+           let diameter = this.radius*2;
+           return diameter;
+       },
+       getArea:function(){
+           let area = this.radius*this.radius*Math.PI;
+           return area;
+       }
+   }
+   ~~~
+
+3. Accessing function object
+
+   ~~~javascript
+   // accessing different properties of circle object
+   circle.radius  = 20;        
+   circle.planeWhereReside = 'XY'
+   
+   // how to access the object inside object
+   circle.location.x = 20;     
+   circle.location.y = 15;
+   
+   // how to access the functions of the object
+   let dia = circle.getDiameter();
+   let AREA = circle.getArea();
+   
+   // displaying the obtained result
+   console.log('diameter : '+dia);		// output :	40
+   console.log('area : '+AREA);		// output : 1256.6370614359173
+   ~~~
+
+## Constructor Function [function inside function]
+
+1. By convention a constructor function always starts with an upper-case letter
+
+   ~~~javascript
+   function Circle(rad){
+       
+       // data
+       this.radius = rad;
+       
+       // function
+       this.draw = function(){
+           let area = this.radius*this.radius*3;
+           return area;
+       }
+   }
+   ~~~
+
+2. An instance of the constructor function can be created
+
+   1. We created the new object 'another' using constructor function 
+
+   ~~~javascript
+   const another = new Circle(2);
+   // another is the instance of the constructor function circle
+   ~~~
+
+3. Accessing the constructor function
+
+   ~~~javascript
+   // create new instance of the Circle
+   let a = new Circle(20);
+   console.log('radius while creating circle : ' + a.radius);		// output : 20
+   
+   // changing the properties individually
+   a.radius = 30;
+   console.log('radius after new assignment : ' + a.radius);
+   
+   // invoking the function
+   let A = a.draw();
+   console.log('area of circle : ' + A);
+   ~~~
+
+## [Factory Function]([https://medium.com/javascript-scene/javascript-factory-functions-with-es6-4d224591a8b1#:~:text=A%20factory%20function%20is%20any,keyword%2C%20it's%20a%20factory%20function.](https://medium.com/javascript-scene/javascript-factory-functions-with-es6-4d224591a8b1#:~:text=A factory function is any,keyword%2C it's a factory function.))
+
+1. A **factory function** is any function which is not a class or constructor that returns a (presumably new) object.
+
+2. User do not need to use `new` keyword to create new instance of the object
+
+3. Whereas in case of constructor function new keyword is being used to create the object instance
+
+   ~~~javascript
+   // making factory function with conventional method
+   function createUser (userName, avatar){
+       return{
+           userName,
+           avatar,
+   
+           setUserName:function(userName){
+               this.userName = userName;
+               return this;
+           }
+       }
+   }
+   
+   //  accessing the factory function
+   console.log('fatory function')
+   console.log(createUser('jay','elephant'));
+   
+   // output
+   {userName: "jay", avatar: "elephant", setUserName: ƒ}
+   
+   -------------------------------------------------------------------------------------------------
+   
+   // same factory function as arrow function
+   function createUser = ({ userName, avatar }) => ({
+     userName,
+     avatar,
+       
+     setUserName (userName) {
+       this.userName = userName;
+       return this;
+     }
+   });
+   
+   // accessing the factory function
+   console.log('fatory function')
+   console.log(createUser({ userName: 'jay', avatar: 'tiger' }));
+   
+   // output
+   {userName: "jay", avatar: "tiger", setUserName: ƒ}
+   ~~~
+
+## [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
+1. sample Class Shape implementation
+
+   1. class must have a constructor
+   2. There can only be one special method with the name "constructor" in a class.
+   3. A constructor can use the `super` keyword to call the constructor of the super class.
+   4. The body of class is being executed in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+
+2. Simple class declaration
+
+   ~~~javascript
+   // class declaration
+   class Shape {
+       constructor(InputedShape, propertyOfObject) {
+           this.shapeOfObject = InputedShape;
+           this.propertyOfObject = property
+       }
+   }   
+   ~~~
+
+3. Declaring class as a class expression
+
+   ~~~javascript
+   let Rect = class {
+       constructor (h, w){
+           this.Rectheight = h;
+           this.Rectwidth = w;
+       }
+   }
+   
+   // retriving the name of the class
+   console.log(Rectangle.name);
+   // output : "Rectangle"
+   ~~~
+
+4. Class Body
+
+   1. class body resides inside the `{}` of the class
+   2. class body includes methods and constructor
+
+   ~~~javascript
+   // methods
+   class Rect {
+   	// constructor
+       constructor (h, w){
+           this.Rectheight = h;
+           this.Rectwidth = w;
+       }
+       // periphery calculation method
+       calculatePeri(){
+           let peri = (2*this.Rectheight) + (2*this.Rectwidth);
+           return peri;
+       }
+       // area calculation method
+       calculateArea(){
+           let area = this.Rectwidth*this.Rectheight;
+           return area;
+       }
+       
+   }
+   ~~~
+
+5. performing getter and setter
+
+   ~~~javascript
+   class Rect {
+       constructor (h, w){
+           this.Rectheight = h;
+           this.Rectwidth = w;
+       }
+       calculatePeri(){
+           let peri = (2*this.Rectheight) + (2*this.Rectwidth);
+           return peri;
+       }
+       calculateArea(){
+           let area = this.Rectwidth*this.Rectheight;
+           return area;
+       }
+       center (){
+           let x = this.Rectheight/2;
+           let y = this.Rectwidth/2
+           return {
+               x,
+               y
+           }
+       }
+   	// getter method to get area
+       get area(){
+           return this.calculateArea();
+       }
+   	// getter method to get periphery
+       get peri(){
+           return this.calculatePeri();
+       }
+   }
+   ~~~
+
+6. Creating the instance of the class and access the properties of that instance
+
+   ~~~javascript
+   let myRectangle = new Rect(2,3);
+   
+   // obtaining the peripheri from get method of shape class
+   let PeriPheriOfMyRectangle = myRectangle.peri;
+   console.log('Peripheri of Recatangle : ' + PeriPheriOfMyRectangle);	// output : 10
+   
+   // obtaining the area by directly accessing the area claculation method 
+   // of class Rect
+   let areaOfMyRectangle = myRectangle.calculateArea();
+   console.log('area of Rectangle : ' + areaOfMyRectangle);	// output : 6
+   
+   // accessing other properties
+   let heightOfMyRectangle = myRectangle.Rectheight;
+   let widthOfMyRectangle = myRectangle.Rectwidth;
+   console.log('Rectangle Height : ' + heightOfMyRectangle );	// output : 2
+   console.log('Rectangle width : ' + widthOfMyRectangle);     // output : 3
+   
+   // accessing the returned object obtained from the method center
+   let centerObject = myRectangle.center();
+   console.log('x co-ordinate of center : ' + centerObject.x);
+   console.log('y co-ordinate of center : ' + centerObject.y);
+   console.log(centerObject);
+   ~~~
+
+7. Static methods
+
+   ~~~javascript
+   // declaring static method in class    
+   static staticMethod(){
+               return 'we are in static method';
+       }
+   
+   // using static method
+   let staticOutput = Rect.staticMethod();
+   console.log('static output : ' + staticOutput);
+   // static method will always be called on class
+   // and not on the instance of class
+   ~~~
+
+8. Field declaration
+
+   ~~~javascript
+   class Rect {
+   field1 = 0;				// public field 
+   field2;					// public field
+   
+   #field2 = 0;			// private field
+   #field3;				// private field
+   
+     constructor(height, width) {    
+       this.field1 = height;
+       this.field2 = width;
+     }
+   }
+   ~~~
+
+9. Extending the class
+
+   ~~~javascript
+   class Rectangle extends Shape{
+       constructor(edge,angle,inputshape){
+           // The super keyword is used to access the call functions on an object's parent 
+           // now we can use the parent's method in the object created using child
+           super(inputshape); 
+           
+           this.edge = edge;
+           this.angle = angle;
+       }
+   
+       showEdges(){
+           return this.edge;
+       }
+   
+       showAngle(){
+           return this.angle;
+       }
+   }
+   ~~~
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+    
