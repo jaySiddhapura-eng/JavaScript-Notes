@@ -733,6 +733,7 @@
    // output
    {userName: "jay", avatar: "elephant", setUserName: ƒ}
    
+   ..................................................................................................
    
    // same factory function as arrow function
    function createUser = ({ userName, avatar }) => ({
