@@ -733,7 +733,7 @@
    // output
    {userName: "jay", avatar: "elephant", setUserName: ƒ}
    
-   ..................................................................................................
+   ....................................................................................
    
    // same factory function as arrow function
    function createUser = ({ userName, avatar }) => ({
@@ -761,7 +761,7 @@
    1. class must have a constructor
    2. There can only be one special method with the name "constructor" in a class.
    3. A constructor can use the `super` keyword to call the constructor of the super class.
-   4. The body of class is being executed in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+   4. The body of class is being executed in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)<br><br>
 
 2. Simple class declaration
 
@@ -793,7 +793,7 @@
 4. Class Body
 
    1. class body resides inside the `{}` of the class
-   2. class body includes methods and constructor
+   2. class body includes methods and constructor<br><br>
 
    ~~~javascript
    // methods
