@@ -72,7 +72,7 @@
    3. can not start with number
    4. can not contains the space or hyphen
    5. variable names are case sensitive
-   6. follow java rules
+   6. follow java rules<br>
 
 4. Declaring constants
 
@@ -105,8 +105,6 @@
     // datatype of undefined variable is also undefined
     console.log('type of null variable : '+ typeof nullVariable);
    ~~~
-
-7. 
 
 ## Reference datatype : [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
 
@@ -152,7 +150,7 @@
 
    1. This method avoid hard coding of the key during query
    2. The property can be access by user during runtime
-   3. User can insert the key to obtain the corresponding value
+   3. User can insert the key to obtain the corresponding value<br><br>
 
    ~~~javascript
    person['Age'] = 22; 			// the string 'Age' can be provided externally
@@ -215,7 +213,7 @@
     2. Instead makes binding of the variable immutable
     3. When constant stores data to certain mem. location, that memory location will remain constant
     4. But data available at that location is not constant and subjected to change
-    5. To avoid such situation Object freeze 
+    5. To avoid such situation Object freeze <br><br>
 
     ~~~javascript
     // read the specific property of constant object
@@ -240,7 +238,7 @@
     1. Basically it freezes the object in which it is being called
     2. Frozen object is no longer be changed 
     3. It makes object sort of constant
-    4. This programming design can be useful during implementation of singleton 
+    4. This programming design can be useful during implementation of singleton <br><br>
 
     ~~~javascript
     // effect of object freeze on constant
@@ -523,7 +521,7 @@
    1.  The nested (inner) function is private to its containing (outer) function
    2. The inner function can be accessed only from statements in the outer function
    3. **The inner function forms a closure**: the inner function can use the arguments and variables of the outer function
-   4. while the outer function cannot use the arguments and variables of the inner function.
+   4. while the outer function cannot use the arguments and variables of the inner function. <br><br>
 
    ~~~javascript
    // one inner function nested within outer function
@@ -581,7 +579,7 @@
 
 10. [Arrow Functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/)
 
-    1. Arrow function has shorter syntax than general function expression
+    1. Arrow function has shorter syntax than general function expression<br><br>
 
     ~~~javascript
     // syntax
@@ -616,7 +614,7 @@
 
 1. While implementing function as a part of object literal, function is taken as object property
 
-   1. Declaring function Object
+   1. Declaring function Object<br><br>
 
 2. [This keyword in JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
