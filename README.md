@@ -53,8 +53,6 @@
    | Undefined       |                 |
    | Null            |                 |
 
-   
-
 3. `var` keyword is history, `let` keyword is used to declare the variable 
 
    ~~~javascript
@@ -735,7 +733,6 @@
    // output
    {userName: "jay", avatar: "elephant", setUserName: ƒ}
    
-   -------------------------------------------------------------------------------------------------
    
    // same factory function as arrow function
    function createUser = ({ userName, avatar }) => ({
