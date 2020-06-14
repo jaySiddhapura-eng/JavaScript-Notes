@@ -53,7 +53,7 @@
    | Undefined       |                 |
    | Null            |                 |
 
-   1. `var` keyword is history, `let` keyword is used to declare the variable 
+3. `var` keyword is history, `let` keyword is used to declare the variable 
 
    ~~~javascript
     // declaring variables 
@@ -65,16 +65,16 @@
     let firstVar = 'string', lastVar = 1;	// two different type of variables 
    ~~~
 
-3. Rules to declaring the variables [naming of variable]
+4. Rules to declaring the variables [naming of variable]
 
    1. can not be reserved keywords
    2. should be meaningful and descriptive
    3. can not start with number
    4. can not contains the space or hyphen
    5. variable names are case sensitive
-   6. follow java rules<br>
+   6. follow java rules<br><br>
 
-4. Declaring constants
+5. Declaring constants
 
    ~~~javascript
    const pi = 3.14;
@@ -82,7 +82,7 @@
    // reassignment is impossible, pretty logical 
    ~~~
 
-5. Primitive Types
+6. Primitive Types
 
    ~~~javascript
     let stringName = 'sampleString';
@@ -92,7 +92,7 @@
     let nullVariable = null;
    ~~~
 
-6. Dynamic Typing: The datatype of variable can change during runtime
+7. Dynamic Typing: The datatype of variable can change during runtime
 
    ~~~javascript
    // In continuation of above section [section 6] 
